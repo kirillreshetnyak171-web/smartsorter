@@ -6,7 +6,7 @@ Tool for **small teams and offices**: upload a spreadsheet, get an **AI draft**,
 
 ---
 
-## What it does (for visitors)
+## What it does
 
 | Scenario | What happens |
 |----------|--------------|
@@ -16,12 +16,6 @@ Tool for **small teams and offices**: upload a spreadsheet, get an **AI draft**,
 | **Privacy (BYOK)** | Your Anthropic API key stays on your Mac in `config.txt` (not in this repo) |
 
 > **Note:** Demo / portfolio project. Includes sample data (`complaints_example.csv`, `company_rules.example.txt`) — no real customer data.
-
----
-
-## Für Besucher (DE)
-
-**SmartSorter** verarbeitet **Excel/CSV** mit KI-Unterstützung: Entwurf erstellen, prüfen, speichern. Demo: **Beschwerden klassifizieren** und in Abteilungsordner verteilen. Oberfläche **DE / EN / RU**.
 
 ---
 
