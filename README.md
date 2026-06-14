@@ -1,98 +1,110 @@
-# SmartSorter — Умный помощник
+# SmartSorter — AI Assistant for Excel & CSV
 
-Desktop-приложение (Python + PyQt6) для обработки Excel/CSV с помощью Claude API.  
-ИИ делает **черновик**, вы проверяете результат и сохраняете. Отдельный сценарий — **классификация жалоб** и раскладка по отделам.
+**Desktop app · Python + PyQt6 · Pet project / demo**
 
-Языки интерфейса: **DE / EN / RU**.
+Tool for **small teams and offices**: upload a spreadsheet, get an **AI draft**, review it, then save. Main demo scenario — **classify customer complaints** and route files to department folders. Interface in **German, English, and Russian**.
 
 ---
 
-## Быстрый старт (Mac)
+## What it does (for visitors)
 
-### 1. Установка (один раз)
+| Scenario | What happens |
+|----------|--------------|
+| **Complaint routing** | Load `complaints_example.csv` → AI suggests category & department → you approve → files go to department folders |
+| **Spreadsheet cleanup** | Templates: duplicates, dates, sorting, trim spaces — or describe the task in plain language |
+| **Human in the loop** | AI never saves silently — you check the draft first |
+| **Privacy (BYOK)** | Your Anthropic API key stays on your Mac in `config.txt` (not in this repo) |
 
-Нужен **Python 3.10+** ([python.org](https://www.python.org/downloads/)).
+> **Note:** Demo / portfolio project. Includes sample data (`complaints_example.csv`, `company_rules.example.txt`) — no real customer data.
 
-В Терминале:
+---
+
+## Für Besucher (DE)
+
+**SmartSorter** verarbeitet **Excel/CSV** mit KI-Unterstützung: Entwurf erstellen, prüfen, speichern. Demo: **Beschwerden klassifizieren** und in Abteilungsordner verteilen. Oberfläche **DE / EN / RU**.
+
+---
+
+## Tech stack
+
+Python 3, PyQt6, Pandas, OpenPyXL, Anthropic Claude API.
+
+---
+
+## Quick start (Mac)
+
+### Install once
 
 ```bash
-cd /путь/к/smartsorter
+git clone https://github.com/kirillreshetnyak171-web/smartsorter.git
+cd smartsorter
 python3 -m pip install -r requirements.txt
 ```
 
-### 2. Запуск без Терминала
+### Run without Terminal
 
-Дважды кликните **`SmartSorter.command`** в папке проекта.
+Double-click **`SmartSorter.command`** in the project folder.  
+First time on macOS: **Right-click → Open → Open**.
 
-При первом запуске macOS может спросить разрешение: **ПКМ → Открыть → Открыть**.
-
-Если появится ошибка про зависимости — выполните шаг 1 в Терминале.
-
-### 3. Запуск из Терминала
+### Run from Terminal
 
 ```bash
-cd /путь/к/smartsorter
 python3 app.py
 ```
 
-### 4. API-ключ
+### API key
 
-1. Создайте ключ на [console.anthropic.com](https://console.anthropic.com) → **API Keys**.
-2. Вставьте в поле вверху слева (`sk-ant-…`).
-3. Ключ сохраняется локально в `config.txt` (только на этом компьютере).
+1. Create a key at [console.anthropic.com](https://console.anthropic.com)  
+2. Paste in the field top-left (`sk-ant-…`)  
+3. Copy `config.example.txt` → `config.txt` if starting fresh  
 
-Модель BYOK: данные идут в Anthropic только когда вы нажимаете «Получить черновик».
-
----
-
-## Демо: классификация жалоб
-
-1. **1 · Файл** → откройте `complaints_example.csv`
-2. **2 · Задача** → шаблон **«Классификация жалоб»**
-3. **Подключить файл правил** → `company_rules.example.txt`
-4. **Получить черновик** → проверьте отчёт и таблицу
-5. **В отделы** → файлы попадут в папки на рабочем столе (см. `department_folders.demo.txt`)
-
-Перед демо создайте папки отделов или поправьте пути в `department_folders.demo.txt`.
+Data is sent to Anthropic **only when you click “Get draft”**.
 
 ---
 
-## Основные файлы
+## Demo: complaint classification
 
-| Файл | Назначение |
-|------|------------|
-| `app.py` | Приложение |
-| `requirements.txt` | Зависимости Python |
-| `SmartSorter.command` | Запуск двойным кликом (Mac) |
-| `config.txt` | Сохранённый API-ключ (создаётся автоматически) |
-| `company_rules.example.txt` | Пример правил компании + список отделов |
-| `complaints_example.csv` | Пример жалоб для теста |
-| `department_folders.demo.txt` | Куда класть файлы по отделам (демо-почта) |
-| `demo_deliver.py` | Тот же экспорт в отделы из командной строки |
+1. **File** → open `complaints_example.csv`  
+2. **Task** → template **«Complaint classification»**  
+3. **Attach rules** → `company_rules.example.txt`  
+4. **Get draft** → review report & table  
+5. **To departments** → files land in folders (see `department_folders.demo.txt`)
+
+Create department folders on your Desktop first, or edit paths in `department_folders.demo.txt`.
 
 ---
 
-## Обычные задачи (без жалоб)
+## Main files
 
-Шаблоны: дубликаты, даты, сортировка, очистка пробелов и др.  
-Откройте любой `.xlsx` / `.csv`, выберите шаблон или опишите задачу своими словами → черновик → **Сохранить**.
-
----
-
-## Частые проблемы
-
-| Сообщение | Что делать |
-|-----------|------------|
-| Нет API-ключа | Вставить ключ вверху слева |
-| Нет правил | Подключить `company_rules.example.txt` для шаблона жалоб |
-| Нет колонки «Отдел» | Сначала выполнить классификацию жалоб |
-| Папки отделов не настроены | Проверить `department_folders.demo.txt` |
-| Ошибка API | Проверить ключ, интернет, баланс в Anthropic |
-
-Все ошибки показывают **что случилось** и **что сделать дальше**.
+| File | Purpose |
+|------|---------|
+| `app.py` | Application |
+| `SmartSorter.command` | Double-click launcher (Mac) |
+| `config.example.txt` | API key template (copy to `config.txt`) |
+| `company_rules.example.txt` | Sample company rules + departments |
+| `complaints_example.csv` | Sample complaints |
+| `department_folders.demo.txt` | Where to deliver files per department |
 
 ---
 
-## Технологии
+## Other tasks
 
-Python 3, PyQt6, Pandas, OpenPyXL, Anthropic Claude API (temperature 0).
+Templates for duplicates, dates, sorting, whitespace cleanup, and more.  
+Open any `.xlsx` / `.csv` → pick a template or describe the task → draft → **Save**.
+
+---
+
+## Troubleshooting
+
+| Message | Fix |
+|---------|-----|
+| No API key | Paste key top-left |
+| No rules file | Attach `company_rules.example.txt` for complaints template |
+| No «Department» column | Run classification first |
+| Department folders missing | Check `department_folders.demo.txt` |
+
+---
+
+## License
+
+Pet / demo project. Use at your own discretion.
