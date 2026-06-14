@@ -1,0 +1,16 @@
+# Папки отделов на рабочем столе (имитация почты).
+# Приложение читает этот файл для кнопки «Отправить в отделы» — выбирать папку не нужно.
+# Формат: Отдел | путь_к_папке | email (опционально)
+# Можно менять пути под свою организацию.
+
+КОНТАКТЫ ОТДЕЛОВ:
+- Служба поддержки | /Users/kirillresetnak/Desktop/SmartSorter_Почта_отделов/Служба поддержки | support@demo.local
+- Бухгалтерия | /Users/kirillresetnak/Desktop/SmartSorter_Почта_отделов/Бухгалтерия | buchhaltung@demo.local
+- Документооборот | /Users/kirillresetnak/Desktop/SmartSorter_Почта_отделов/Документооборот | docs@demo.local
+- Контроль качества | /Users/kirillresetnak/Desktop/SmartSorter_Почта_отделов/Контроль качества | qa@demo.local
+- Руководитель смены | /Users/kirillresetnak/Desktop/SmartSorter_Почта_отделов/Руководитель смены | shift-lead@demo.local
+- IT-поддержка | /Users/kirillresetnak/Desktop/SmartSorter_Почта_отделов/IT-поддержка | it-helpdesk@demo.local
+
+СПЕЦИАЛЬНЫЕ ПАПКИ:
+- На проверку | /Users/kirillresetnak/Desktop/SmartSorter_Почта_отделов/_На_проверку
+- Сводка | /Users/kirillresetnak/Desktop/SmartSorter_Почта_отделов/_Сводка

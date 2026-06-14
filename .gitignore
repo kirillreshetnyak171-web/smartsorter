@@ -1,0 +1,18 @@
+# Secrets & local state
+config.txt
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# User data
+data/
+language.txt
+theme.txt
+rules_path.txt
+
+# Backups & OS
+*.before-changes
+.DS_Store
